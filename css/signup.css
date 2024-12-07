@@ -1,0 +1,119 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: url("https://static.republika.co.id/uploads/member/images/news/240622152001-449.jpeg") no-repeat center center fixed;
+  /* background: url("img/perpusda.jpg") no-repeat center center fixed; */
+  /* background-image: url("img/perpusda.jpg"); */
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  animation: fadeInBody 1s ease-out;
+}
+
+/* Animasi fade-in untuk body */
+@keyframes fadeInBody {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.signup-container {
+  background-color: rgba(255, 255, 255, 0.3);
+  padding: 30px;
+  border-radius: 10px;
+  width: 400px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  animation: fadeInSignUp 1s ease-out;
+}
+
+/*Animasi signup-container*/
+@keyframes fadeInSignUp {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.logo-container {
+  margin-bottom: 20px;
+}
+
+.logo {
+  width: 80px;
+  height: 80px;
+}
+
+h2 {
+  color: black;
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.input-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.input-group label {
+  font-size: 14px;
+  margin-bottom: 5px;
+  display: block;
+  color: black;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.signup-btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #4c6ef5;
+  border: none;
+  color: white;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.signup-btn:hover {
+  background-color: #3b5bdb;
+}
+
+.login {
+  font-size: 14px;
+}
+
+.login a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.login a:hover {
+  text-decoration: underline;
+}
