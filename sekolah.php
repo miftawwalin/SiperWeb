@@ -9,6 +9,7 @@ include 'koneksi.php'; // Menghubungkan ke file koneksi database
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Perpustakaan Daerah Kabupaten Karawang</title>
     <link rel="stylesheet" href="css/sekolah.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   </head>
   <body>
     <header>

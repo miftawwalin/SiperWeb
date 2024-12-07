@@ -26,15 +26,6 @@ include 'koneksi.php'; // Menghubungkan ke file koneksi database
         <p class="profile-name">Anita Silvana</p>
         <p class="profile-role">Administrator</p>
       </div>
-      <!-- <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="#" class="active">Data Sekolah</a></li>
-        <li><a href="databuku.html">Data Buku</a></li>
-        <li><a href="datapeminjaman.html">Peminjaman</a></li>
-        <li><a href="datapengembalian.html">Pengembalian</a></li>
-        <li><a href="dataadmin.html">Data Admin</a></li>
-      </ul> -->
-
       <ul>
         <li>
           <a href="index.php"><i class="fas fa-home"></i> Home</a>
