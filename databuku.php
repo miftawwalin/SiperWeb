@@ -76,19 +76,30 @@ include 'koneksi.php'; // Menghubungkan ke file koneksi database
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>123456</td>
-            <td>Buku A</td>
-            <td>A</td>
-            <td>A</td>
-            <td>2019</td>
-            <td>SMPN A</td>
-            <td>
-              <button class="edit-icon"></button>
-              <button class="delete-icon"></button>
-            </td>
-          </tr>
+        <?php
+          // Query untuk mengambil data dari tabel
+          $query = "SELECT * FROM tbldata_buku";
+          $result = mysqli_query($conn, $query);
+
+          // Periksa apakah ada data
+          if (mysqli_num_rows($result) > 0) {
+              $no = 1;
+              while ($row = mysqli_fetch_assoc($result)) {
+                  echo "<tr>";
+                  echo "<td>" . $no++ . "</td>";
+                  echo "<td>" . $row['id_buku'] . "</td>";
+                  echo "<td>" . $row['judul'] . "</td>";
+                  echo "<td>" . $row['penulis'] . "</td>";
+                  echo "<td>" . $row['penerbit'] . "</td>";
+		  echo "<td>" . $row['tahun_terbit'] . "</td>";
+		  echo "<td>" . $row['fk_induk'] . "</td>";
+                  echo "<td><button onclick=\"window.location.href='buku.php'\">Lihat Data</button></td>";
+                  echo "</tr>";
+              }
+          } else {
+              echo "<tr><td colspan='6'>Tidak ada data</td></tr>";
+          }
+          ?>
         </tbody>
       </table>
     </div>

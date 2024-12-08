@@ -71,7 +71,7 @@ include 'koneksi.php'; // Menghubungkan ke file koneksi database
                   echo "<td>" . $row['nm_sekolah'] . "</td>";
                   echo "<td>" . $row['alamat'] . "</td>";
                   echo "<td>" . $row['email'] . "</td>";
-                  echo "<td><button onclick=\"window.location.href='buku.html'\">Lihat Data</button></td>";
+                  echo "<td><button onclick=\"window.location.href='buku.php'\">Lihat Data</button></td>";
                   echo "</tr>";
               }
           } else {
