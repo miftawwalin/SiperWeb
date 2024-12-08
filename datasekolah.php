@@ -21,30 +21,18 @@ include 'koneksi.php'; // Menghubungkan ke file koneksi database
       </div>
     </header>
     <div class="sidebar">
-    <div class="profile">
-          <img src="img/MIFTAHUL.png" alt="" class="profile-pic" />
-          <p class="profile-name"> $username </p>
-          <p class="profile-role">Administrator</p>
-        </div>
+      <div class="profile">
+        <img src="img/MIFTAHUL.png" alt="" class="profile-pic" />
+        <p class="profile-name"><?php echo isset($_SESSION['username']) ? $_SESSION['username'] : 'Guest'; ?></p>
+        <p class="profile-role">Administrator</p>
+      </div>
       <ul>
-        <li>
-          <a href="index.php"><i class="fas fa-home"></i> Home</a>
-        </li>
-        <li>
-          <a href="#" class="active"><i class="fas fa-school"></i> Data Sekolah</a>
-        </li>
-        <li>
-          <a href="databuku.php"><i class="fas fa-book"></i> Data Buku</a>
-        </li>
-        <li>
-          <a href="datapeminjaman.php"><i class="fas fa-sign-out-alt"></i> Peminjaman</a>
-        </li>
-        <li>
-          <a href="datapengembalian.php"><i class="fas fa-sign-in-alt"></i> Pengembalian</a>
-        </li>
-        <li>
-          <a href="dataadmin.php"><i class="fas fa-user-shield"></i> Data Admin</a>
-        </li>
+        <li><a href="index.php"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="#" class="active"><i class="fas fa-school"></i> Data Sekolah</a></li>
+        <li><a href="databuku.php"><i class="fas fa-book"></i> Data Buku</a></li>
+        <li><a href="datapeminjaman.php"><i class="fas fa-sign-out-alt"></i> Peminjaman</a></li>
+        <li><a href="datapengembalian.php"><i class="fas fa-sign-in-alt"></i> Pengembalian</a></li>
+        <li><a href="dataadmin.php"><i class="fas fa-user-shield"></i> Data Admin</a></li>
       </ul>
     </div>
     <div class="main-content">
@@ -68,18 +56,28 @@ include 'koneksi.php'; // Menghubungkan ke file koneksi database
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>123456789</td>
-            <td>SMPN A Karawang</td>
-            <td>Karawang Barat</td>
-            <td>smpn@gmail.com</td>
-            <td><button onclick="window.location.href='buku.html'">Lihat Data</button></td>
-            <td>
-              <button class="edit-icon"></button>
-              <button class="delete-icon"></button>
-            </td>
-          </tr>
+          <?php
+          // Query untuk mengambil data dari tabel
+          $query = "SELECT * FROM tbldata_sekolah";
+          $result = mysqli_query($conn, $query);
+
+          // Periksa apakah ada data
+          if (mysqli_num_rows($result) > 0) {
+              $no = 1;
+              while ($row = mysqli_fetch_assoc($result)) {
+                  echo "<tr>";
+                  echo "<td>" . $no++ . "</td>";
+                  echo "<td>" . $row['no_induk'] . "</td>";
+                  echo "<td>" . $row['nm_sekolah'] . "</td>";
+                  echo "<td>" . $row['alamat'] . "</td>";
+                  echo "<td>" . $row['email'] . "</td>";
+                  echo "<td><button onclick=\"window.location.href='buku.html'\">Lihat Data</button></td>";
+                  echo "</tr>";
+              }
+          } else {
+              echo "<tr><td colspan='6'>Tidak ada data</td></tr>";
+          }
+          ?>
         </tbody>
       </table>
     </div>
