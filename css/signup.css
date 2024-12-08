@@ -8,7 +8,7 @@ body {
   font-family: Arial, sans-serif;
   /* background: url("https://static.republika.co.id/uploads/member/images/news/240622152001-449.jpeg") no-repeat center center fixed; */
   /* background: url("img/perpusda.jpg") no-repeat center center fixed; */
-  background: url("img/perpusda.jpg");
+  background: url("../img/perpusda.jpg");
   background-size: cover;
   display: flex;
   justify-content: center;
