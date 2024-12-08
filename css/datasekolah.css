@@ -1,46 +1,62 @@
-body {
-  font-family: Arial, sans-serif;
+/* Global Reset */
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+/* Header Styles */
 header {
   background-color: #6c5ce7;
   color: #fff;
   padding: 1em;
   text-align: center;
   border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .logo {
-  display: inline-block;
-  margin-right: 1em;
+  display: flex;
+  align-items: center;
 }
 
 .logo-pic {
   width: 50px;
   height: 50px;
   border-radius: 100px;
-  border: 1px solid white;
-}
-.user-icon {
-  display: inline-block;
-  margin-left: 1em;
+  border: 2px solid white;
 }
 
+.user-icon {
+  display: flex;
+  align-items: center;
+}
+
+.user-icon img {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+}
+
+/* Sidebar Styles */
 .sidebar {
   background: linear-gradient(to bottom, #6c5ce7, #3c2cb1);
   color: #fff;
-  width: 200px;
+  width: 250px;
   position: fixed;
   top: 0;
   left: 0;
   bottom: 0;
-  transition: width 0.3s;
-  -webkit-transition: width 0.3s;
-  -moz-transition: width 0.3s;
-  -ms-transition: width 0.3s;
-  -o-transition: width 0.3s;
+  padding: 20px;
+  transition: width 0.3s ease;
 }
 
 .profile {
@@ -49,19 +65,14 @@ header {
 }
 
 .profile-pic {
-  margin-top: 20px;
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   border-radius: 100px;
   border: 2px solid white;
-  -webkit-border-radius: 100px;
-  -moz-border-radius: 100px;
-  -ms-border-radius: 100px;
-  -o-border-radius: 100px;
+  margin-bottom: 10px;
 }
 
 .profile-name {
-  margin-top: 10px;
   font-weight: bold;
   font-size: 18px;
 }
@@ -72,89 +83,96 @@ header {
 }
 
 .sidebar ul {
-  list-style: none;
+  list-style-type: none;
   padding: 0;
   margin: 0;
 }
 
 .sidebar li {
-  margin-bottom: 1em;
-}
-
-.sidebar a {
-  color: #fff;
-  text-decoration: none;
-}
-
-div ul li {
   margin: 20px 0;
-  display: flex;
 }
 
-div ul li a {
-  color: white;
+.sidebar li a {
+  color: #fff;
   text-decoration: none;
   display: block;
   padding: 10px;
   border-radius: 5px;
-  align-items: center;
-  transition: background-color 0.3s, transform 0.2s;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-div ul li a:hover,
-div ul li a.active {
+.sidebar li a:hover,
+.sidebar li a.active {
   background-color: #4f3ed4;
   transform: translateX(5px);
 }
 
+/* Main Content Styles */
 .main-content {
-  margin-left: 200px;
-  padding: 1em;
+  margin-left: 250px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
 }
 
 h2 {
   margin-top: 0;
 }
 
+/* Tabs */
 .tabs {
-  margin-bottom: 1em;
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
 }
 
 .tabs button {
   background-color: #6c5ce7;
   color: #fff;
   border: none;
-  padding: 0.5em 1em;
+  padding: 10px 20px;
+  border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .tabs button.active {
   background-color: #4caf50;
 }
 
+.tabs button:hover {
+  background-color: #5b4de3;
+}
+
+/* Search Bar */
 .search-bar {
-  margin-bottom: 1em;
+  margin-bottom: 20px;
 }
 
 .search-bar input[type="search"] {
   width: 100%;
-  padding: 0.5em;
+  padding: 10px;
   border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
+/* Table Styles */
 table {
-  border-collapse: collapse;
   width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
 }
 
-th,
-td {
-  border: 1px solid #ccc;
-  padding: 0.5em;
+table th,
+table td {
+  border: 1px solid #ddd;
+  padding: 10px;
   text-align: left;
 }
 
-th {
+table th {
   background-color: #f0f0f0;
 }
 
@@ -163,10 +181,22 @@ th {
   background-color: #4caf50;
   color: #fff;
   border: none;
-  padding: 0.5em 1em;
+  padding: 5px 10px;
   cursor: pointer;
+  border-radius: 5px;
 }
 
 .edit-icon {
-  margin-right: 1em;
+  margin-right: 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 200px;
+  }
+
+  .main-content {
+    margin-left: 200px;
+  }
 }
