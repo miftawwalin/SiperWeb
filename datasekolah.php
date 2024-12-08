@@ -21,11 +21,11 @@ include 'koneksi.php'; // Menghubungkan ke file koneksi database
       </div>
     </header>
     <div class="sidebar">
-      <div class="profile">
-        <img src="profile.jpg" alt="Profile Picture" class="profile-pic" />
-        <p class="profile-name">Anita Silvana</p>
-        <p class="profile-role">Administrator</p>
-      </div>
+    <div class="profile">
+          <img src="img/MIFTAHUL.png" alt="" class="profile-pic" />
+          <p class="profile-name"> $username </p>
+          <p class="profile-role">Administrator</p>
+        </div>
       <ul>
         <li>
           <a href="index.php"><i class="fas fa-home"></i> Home</a>

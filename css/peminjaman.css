@@ -30,6 +30,33 @@ header {
   bottom: 0;
 }
 
+.profile {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.profile-pic {
+  background: url("");
+  width: 60px;
+  height: 60px;
+  border-radius: 100px;
+  border: 2px solid white;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  -ms-border-radius: 100px;
+  -o-border-radius: 100px;
+}
+
+.profile-name {
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.profile-role {
+  font-size: 14px;
+  color: #ddd;
+}
 .sidebar ul {
   list-style: none;
   padding: 0;

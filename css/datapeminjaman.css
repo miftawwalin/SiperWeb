@@ -20,50 +20,67 @@ header {
   margin-left: 1em;
 }
 .sidebar {
-  background-color: #3498db;
+  background: linear-gradient(to bottom, #6c5ce7, #3c2cb1);
   color: #fff;
   width: 200px;
   position: fixed;
   top: 0;
   left: 0;
   bottom: 0;
+  transition: width 0.3s;
 }
 
-.user-profile {
-  margin-bottom: 1em;
-}
-.user-profile img {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  margin-right: 1em;
+.profile {
+  text-align: center;
+  margin-bottom: 30px;
 }
 
-.sidebar ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.sidebar li {
-  margin-bottom: 1em;
-}
-
-.sidebar a {
-  color: #fff;
-  text-decoration: none;
+.profile-pic {
+  background: url("../img/MIFTAHUL.png");
+  width: 60px;
+  height: 60px;
+  border-radius: 100px;
+  border: 2px solid white;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  -ms-border-radius: 100px;
+  -o-border-radius: 100px;
 }
 
-div ul li {
+.profile-name {
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.profile-role {
+  font-size: 14px;
+  color: #ddd;
+}
+
+nav ul {
+  list-style-type: none;
+}
+
+nav ul li {
   margin: 20px 0;
 }
 
-div ul li a {
+nav ul li a {
   color: white;
   text-decoration: none;
   display: block;
   padding: 10px;
   border-radius: 5px;
+  transition: background-color 0.3s, transform 0.2s;
 }
+
+nav ul li a:hover,
+nav ul li a.active {
+  background-color: #3b5bdb;
+  transform: translateX(5px);
+}
+
 .main-content {
   margin-left: 200px;
   padding: 1em;

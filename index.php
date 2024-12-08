@@ -44,7 +44,7 @@ function getUsernameByEmail($email, $conn) {
       <!-- Sidebar -->
       <div class="sidebar">
         <div class="profile">
-          <img src="profile.jpg" alt="Profile Picture" class="profile-pic" />
+          <img src="img/MIFTAHUL.png" alt="" class="profile-pic" />
           <p class="profile-name"> $username </p>
           <p class="profile-role">Administrator</p>
         </div>

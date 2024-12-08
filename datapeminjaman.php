@@ -11,29 +11,38 @@ include 'koneksi.php'; // Menghubungkan ke file koneksi database
     <link rel="stylesheet" href="css/datapeminjaman.css" />
   </head>
   <body>
-    <header>
-      <div class="logo">
-        <img src="logo.png" alt="Perpustakaan Daerah Kabupaten Karawang" />
+  <div class="sidebar">
+        <div class="profile">
+          <img src="img/MIFTAHUL.png" alt="" class="profile-pic" />
+          <p class="profile-name"> $username </p>
+          <p class="profile-role">Administrator</p>
+        </div>
+        <nav>
+          <ul>
+            <li>
+              <a href="#" class="active"><i class="fas fa-home"></i> Home</a>
+            </li>
+            <li>
+              <a href="datasekolah.php"><i class="fas fa-school"></i> Data Sekolah</a>
+            </li>
+            <li>
+              <a href="databuku.php"><i class="fas fa-book"></i> Data Buku</a>
+            </li>
+            <li>
+              <a href="datapeminjaman.php"><i class="fas fa-sign-out-alt"></i> Peminjaman</a>
+            </li>
+            <li>
+              <a href="datapengembalian.php"><i class="fas fa-sign-in-alt"></i> Pengembalian</a>
+            </li>
+            <li>
+              <a href="dataadmin.php"><i class="fas fa-user-shield"></i> Data Admin</a>
+            </li>
+            <li>
+              <a href="logout.php"><i class="fas fa-user-shield"></i>Logout</a>
+            </li>
+          </ul>
+        </nav>
       </div>
-      <div class="user-icon">
-        <img src="user-icon.png" alt="User Icon" />
-      </div>
-    </header>
-    <div class="sidebar">
-      <div class="user-profile">
-        <img src="user-profile.png" alt="Anita Silvana" />
-        <span>Anita Silvana</span>
-        <span>Administrator</span>
-      </div>
-      <ul>
-        <li><a href="index.php">Home</a></li>
-        <li><a href="datasekolah.php">Data Sekolah</a></li>
-        <li><a href="databuku.php">Data Buku</a></li>
-        <li><a href="#" class="active">Peminjaman</a></li>
-        <li><a href="datapengembalian.php">Pengembalian</a></li>
-        <li><a href="dataadmin.php">Data Admin</a></li>
-      </ul>
-    </div>
     <div class="main-content">
       <h2>Data Peminjaman</h2>
       <button class="button" onclick="window.location.href='peminjaman.php'">Upload Data</button>
