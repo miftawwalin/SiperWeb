@@ -29,8 +29,8 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `user` (
   `id_user` varchar(4) DEFAULT NULL,
-  `nama_user` varchar(50) DEFAULT NULL,
-  `username` varchar(17) DEFAULT NULL,
+  `username` varchar(50) DEFAULT NULL,
+  `email` varchar(17) DEFAULT NULL,
   `password` varchar(17) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -38,7 +38,7 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id_user`, `nama_user`, `username`, `password`) VALUES
+INSERT INTO `user` (`id_user`, `username`, `email`, `password`) VALUES
 ('01', 'Miftahul AI', 'mifta41', 'admin1'),
 ('o2', 'Miftahul AI', 'mifta41@gmail.com', 'mifta41');
 

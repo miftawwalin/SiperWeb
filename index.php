@@ -1,26 +1,27 @@
 <?php 
 session_start();
 include 'koneksi.php';
+
 // Periksa apakah pengguna sudah login
 if (!isset($_SESSION['username'])) {
   header("Location: login.php");
   exit();
 }
-function getUsernameByEmail($email, $conn) {
-  // Escape input untuk keamanan
-  $email = mysqli_real_escape_string($conn, $email);
 
-  // Query untuk mengambil username berdasarkan email
-  $query = "SELECT username FROM usersignup WHERE email = '$email'";
-  $result = mysqli_query($conn, $query);
+// Ambil username dari sesi
+$username = $_SESSION['username'];
 
-  // Periksa apakah data ditemukan
-  if (mysqli_num_rows($result) > 0) {
-      $data = mysqli_fetch_assoc($result);
-      return $data['username']; // Ambil kolom username
-  } else {
-      return null; // Kembalikan null jika email tidak ditemukan
-  }
+// Query untuk mendapatkan nama pengguna berdasarkan username
+$query = "SELECT nama_user FROM user WHERE username = '$username'";
+$result = mysqli_query($conn, $query);
+
+// Default nama pengguna jika tidak ditemukan
+$nama_user = "Guest";
+
+// Jika data ditemukan, ambil nama pengguna
+if (mysqli_num_rows($result) > 0) {
+    $row = mysqli_fetch_assoc($result);
+    $nama_user = $row['nama_user'];
 }
 ?>
 
@@ -32,12 +33,6 @@ function getUsernameByEmail($email, $conn) {
     <title>Perpustakaan Daerah</title>
     <link rel="stylesheet" href="css/index.css" /> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-    <style>
-      .body {
-        
-      }
-
-    </style>
   </head>
   <body>
     <div class="container">
@@ -45,7 +40,7 @@ function getUsernameByEmail($email, $conn) {
       <div class="sidebar">
         <div class="profile">
           <img src="img/MIFTAHUL.png" alt="" class="profile-pic" />
-          <p class="profile-name"> $username </p>
+          <span class="profile-name">Hello, <?php echo $nama_user; ?></span> 
           <p class="profile-role">Administrator</p>
         </div>
         <nav>
