@@ -1,0 +1,121 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #3498db;
+  color: #fff;
+  padding: 1em;
+  text-align: center;
+}
+
+.logo {
+  display: inline-block;
+  margin-right: 1em;
+}
+.user-icon {
+  display: inline-block;
+  margin-left: 1em;
+}
+
+.sidebar {
+  background-color: #3498db;
+  color: #fff;
+  width: 200px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+}
+
+.profile {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.profile-pic {
+  background: url("");
+  width: 60px;
+  height: 60px;
+  border-radius: 100px;
+  border: 2px solid white;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  -ms-border-radius: 100px;
+  -o-border-radius: 100px;
+}
+
+.profile-name {
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.profile-role {
+  font-size: 14px;
+  color: #ddd;
+}
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.sidebar li {
+  margin-bottom: 1em;
+}
+
+.sidebar a {
+  color: #fff;
+  text-decoration: none;
+}
+
+div ul li {
+  margin: 20px 0;
+}
+
+div ul li a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+div ul li a:hover,
+div ul li a.active {
+  background-color: #4f3ed4;
+}
+
+.main-content {
+  margin-left: 200px;
+  padding: 1em;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+form {
+  margin-top: 1em;
+}
+label {
+  display: block;
+  margin-bottom: 0.5em;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 0.5em;
+  margin-bottom: 1em;
+  border: 1px solid #ccc;
+}
+
+button[type="submit"] {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 0.5em 1em;
+  cursor: pointer;
+}

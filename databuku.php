@@ -13,14 +13,6 @@ include 'koneksi.php'; // Menghubungkan ke file koneksi database
 
   </head>
   <body>
-    <header>
-      <div class="logo">
-        <img src="logo.png" alt="Perpustakaan Daerah Kabupaten Karawang" />
-      </div>
-      <div class="user-icon">
-        <img src="user-icon.png" alt="User Icon" />
-      </div>
-    </header>
     <div class="sidebar">
         <div class="profile">
           <img src="img/MIFTAHUL.png" alt="" class="profile-pic" />

@@ -1,121 +1,141 @@
-body {
-  font-family: Arial, sans-serif;
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;600;700;800;900&display=swap");
+
+* {
+  font-family: "Roboto", sans-serif;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
-header {
-  background-color: #3498db;
-  color: #fff;
-  padding: 1em;
-  text-align: center;
+:root {
+  --blue: #2a2185;
+  --white: #fff;
+  --grey: #f5f5f5;
+  --black1: #222;
+  --black2: #999;
+  --black3: #2e2b24;
 }
 
-.logo {
-  display: inline-block;
-  margin-right: 1em;
+body {
+  height: 100vh;
+  overflow-x: hidden;
+  background: var(--grey);
 }
-.user-icon {
-  display: inline-block;
-  margin-left: 1em;
+
+.container {
+  display: flex;
+  height: 100vh;
 }
 
 .sidebar {
-  background-color: #3498db;
-  color: #fff;
-  width: 200px;
   position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
+  width: 250px;
+  height: 100%;
+  background: var(--black3);
+  padding: 20px;
+  transition: 0.5s;
 }
 
-.profile {
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin: 20px 0;
+}
+
+.sidebar ul li a {
+  color: var(--white);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-radius: 10px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.sidebar ul li a:hover {
+  background-color: var(--blue);
+  transform: translateX(10px);
+}
+
+.main-content {
+  flex-grow: 1;
+  margin-left: 250px;
+  padding: 20px;
+  background-color: var(--white);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+header .profile {
   text-align: center;
   margin-bottom: 30px;
 }
 
-.profile-pic {
-  background: url("");
+header .profile-pic {
   width: 60px;
   height: 60px;
   border-radius: 100px;
-  border: 2px solid white;
-  -webkit-border-radius: 100px;
-  -moz-border-radius: 100px;
-  -ms-border-radius: 100px;
-  -o-border-radius: 100px;
+  border: 2px solid var(--white);
 }
 
-.profile-name {
+header .profile-name {
   margin-top: 10px;
-  font-weight: bold;
+  color: var(--white);
   font-size: 18px;
+  font-weight: 500;
 }
 
-.profile-role {
+header .profile-role {
   font-size: 14px;
-  color: #ddd;
-}
-.sidebar ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.sidebar li {
-  margin-bottom: 1em;
-}
-
-.sidebar a {
-  color: #fff;
-  text-decoration: none;
-}
-
-div ul li {
-  margin: 20px 0;
-}
-
-div ul li a {
-  color: white;
-  text-decoration: none;
-  display: block;
-  padding: 10px;
-  border-radius: 5px;
-}
-
-div ul li a:hover,
-div ul li a.active {
-  background-color: #4f3ed4;
-}
-
-.main-content {
-  margin-left: 200px;
-  padding: 1em;
+  color: var(--black2);
 }
 
 h2 {
-  margin-top: 0;
+  font-size: 24px;
+  color: var(--black1);
+  margin-bottom: 20px;
 }
 
 form {
-  margin-top: 1em;
-}
-label {
-  display: block;
-  margin-bottom: 0.5em;
+  display: grid;
+  gap: 15px;
 }
 
-input[type="text"] {
+form label {
+  font-size: 14px;
+  color: var(--black2);
+}
+
+form input {
   width: 100%;
-  padding: 0.5em;
-  margin-bottom: 1em;
-  border: 1px solid #ccc;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid var(--black2);
+  border-radius: 5px;
+  outline: none;
 }
 
-button[type="submit"] {
-  background-color: #4caf50;
-  color: #fff;
+form button {
+  background-color: var(--blue);
+  color: var(--white);
+  padding: 10px;
+  font-size: 16px;
   border: none;
-  padding: 0.5em 1em;
+  border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+form button:hover {
+  background-color: darken(var(--blue), 10%);
 }
