@@ -23,8 +23,9 @@ include 'koneksi.php'; // Menghubungkan ke file koneksi database
     </header>
     <div class="sidebar">
       <div class="user-profile">
-        <img src="user-profile.png" alt="Anita Silvana" />
-        <span>Anita Silvana</span>
+      <img src="profile.jpg" alt="Profile Picture" class="profile-pic" />
+        <p class="profile-name">Anita Silvana</p>
+        <p class="profile-role">Administrator</p>
       </div>
       <nav>
           <ul>
