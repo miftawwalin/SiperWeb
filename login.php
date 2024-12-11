@@ -27,6 +27,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['id_user'] = $user['id_user'];
             $_SESSION['username'] = $user['username'];
 
+            echo"
+            <script>    
+                swal.fire({
+                    title: 'Login Berhasil!',
+                    icon: 'success'
+                }).then(function() {
+                    window.location.href = 'home.php';
+                });
+            </script>";
+
             // Redirect ke halaman index
             header("Location: index.php");
             exit();
@@ -38,7 +48,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Email tidak ditemukan
         $error = "Email tidak terdaftar!";
     }
-}
+  } 
+      else{
+        echo"
+        <script>    
+            swal.fire({
+                  title: 'Login Gagal!',
+                  icon: 'error'
+            }).then(function() {
+                window.location.href = 'index.php';
+            });
+        </script>";
+      }
+
 ?>
 
 
