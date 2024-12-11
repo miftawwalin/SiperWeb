@@ -1,6 +1,31 @@
 <?php 
 session_start();
 include 'koneksi.php'; // Menghubungkan ke file koneksi database
+
+// Periksa apakah pengguna sudah login
+if (!isset($_SESSION['username'])) {
+  header("Location: login.php");
+  exit();
+}
+
+// Ambil username dari sesi
+$username = $_SESSION['username'];
+
+// Default nama pengguna jika tidak ditemukan
+$nama_user = "Guest";
+
+// Query untuk mendapatkan nama pengguna berdasarkan username
+$query = "SELECT username FROM user WHERE username = ?";
+$stmt = $conn->prepare($query);
+$stmt->bind_param("s", $username);
+$stmt->execute();
+$result = $stmt->get_result();
+
+// Jika data ditemukan, ambil nama pengguna
+if ($result->num_rows > 0) {
+  $row = $result->fetch_assoc();
+  $nama_user = $row['username'];
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +41,7 @@ include 'koneksi.php'; // Menghubungkan ke file koneksi database
     <div class="sidebar">
         <div class="profile">
           <img src="img/MIFTAHUL.png" alt="" class="profile-pic" />
-          <p class="profile-name"> $username </p>
+          <p class="profile-name"> <?php echo($username);?> </p>
           <p class="profile-role">Administrator</p>
         </div>
         <nav>
@@ -70,7 +95,7 @@ include 'koneksi.php'; // Menghubungkan ke file koneksi database
         <tbody>
         <?php
           // Query untuk mengambil data dari tabel
-          $query = "SELECT * FROM tbldata_buku";
+          $query = "SELECT * FROM data_buku";
           $result = mysqli_query($conn, $query);
 
           // Periksa apakah ada data

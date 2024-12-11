@@ -20,10 +20,11 @@ header {
   margin-left: 1em;
 }
 .sidebar {
-  background: linear-gradient(to bottom, #6c5ce7, #3c2cb1);
+  background-color: #2a2185;
   color: #fff;
   width: 200px;
   position: fixed;
+  padding: 10px;
   top: 0;
   left: 0;
   bottom: 0;

@@ -47,13 +47,13 @@ body {
   height: 60px;
   border-radius: 100px;
   border: 2px solid var(--white);
+  margin-bottom: 10px;
 }
 
 .profile-name {
-  margin-top: 20px;
-  color: var(--white);
+  font-weight: bold;
   font-size: 18px;
-  font-weight: 500;
+  color: var(--white);
 }
 
 .profile-role {

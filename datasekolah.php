@@ -58,7 +58,7 @@ include 'koneksi.php'; // Menghubungkan ke file koneksi database
         <tbody>
           <?php
           // Query untuk mengambil data dari tabel
-          $query = "SELECT * FROM tbldata_sekolah";
+          $query = "SELECT * FROM data_sekolah";
           $result = mysqli_query($conn, $query);
 
           // Periksa apakah ada data

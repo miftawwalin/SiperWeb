@@ -1,6 +1,32 @@
 <?php 
 session_start();
 include 'koneksi.php'; // Menghubungkan ke file koneksi database
+
+// Periksa apakah pengguna sudah login
+if (!isset($_SESSION['username'])) {
+  header("Location: login.php");
+  exit();
+}
+
+// Ambil username dari sesi
+$username = $_SESSION['username'];
+
+// Default nama pengguna jika tidak ditemukan
+$nama_user = "Guest";
+
+// Query untuk mendapatkan nama pengguna berdasarkan username
+$query = "SELECT username FROM user WHERE username = ?";
+$stmt = $conn->prepare($query);
+$stmt->bind_param("s", $username);
+$stmt->execute();
+$result = $stmt->get_result();
+
+// Jika data ditemukan, ambil nama pengguna
+if ($result->num_rows > 0) {
+  $row = $result->fetch_assoc();
+  $nama_user = $row['username'];
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,18 +35,19 @@ include 'koneksi.php'; // Menghubungkan ke file koneksi database
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Perpustakaan Daerah Kabupaten Karawang</title>
     <link rel="stylesheet" href="css/datapeminjaman.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   </head>
   <body>
   <div class="sidebar">
         <div class="profile">
           <img src="img/MIFTAHUL.png" alt="" class="profile-pic" />
-          <p class="profile-name"> $username </p>
+          <p class="profile-name"> <?php echo($username); ?> </p>
           <p class="profile-role">Administrator</p>
         </div>
         <nav>
           <ul>
             <li>
-              <a href="#" class="active"><i class="fas fa-home"></i> Home</a>
+              <a href="index.php"><i class="fas fa-home"></i> Home</a>
             </li>
             <li>
               <a href="datasekolah.php"><i class="fas fa-school"></i> Data Sekolah</a>
@@ -29,7 +56,7 @@ include 'koneksi.php'; // Menghubungkan ke file koneksi database
               <a href="databuku.php"><i class="fas fa-book"></i> Data Buku</a>
             </li>
             <li>
-              <a href="datapeminjaman.php"><i class="fas fa-sign-out-alt"></i> Peminjaman</a>
+              <a href="#" class="active"><i class="fas fa-sign-out-alt"></i> Peminjaman</a>
             </li>
             <li>
               <a href="datapengembalian.php"><i class="fas fa-sign-in-alt"></i> Pengembalian</a>

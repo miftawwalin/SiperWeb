@@ -5,10 +5,10 @@ body {
 }
 
 header {
-  background-color: #6c5ce7;
+  background-color: #2a2185;
   color: #fff;
   padding: 1em;
-  text-align: center;
+  text-align: right;
 }
 
 .logo {
@@ -19,57 +19,72 @@ header {
   display: inline-block;
   margin-left: 1em;
 }
-
+/* Sidebar Styles */
 .sidebar {
-  background-color: #6c5ce7;
-  color: #fff;
+  background-color: #2a2185; /* Ubah background navbar menjadi biru elegan */
+  color: white;
   width: 200px;
   position: fixed;
   top: 0;
   left: 0;
   bottom: 0;
+  padding: 10px;
+  transition: width 0.3s ease;
+  box-shadow: 4px 0 10px rgba(0, 0, 0, 0.1); /* Menambahkan bayangan untuk kesan elegan */
+  z-index: 100; /* Menjaga sidebar tetap di atas konten */
 }
 
-.user-profile {
-  margin-bottom: 1em;
+.profile {
+  text-align: center;
+  margin-bottom: 30px;
 }
-.user-profile img {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  margin-right: 1em;
+
+.profile-pic {
+  width: 60px;
+  height: 60px;
+  border-radius: 100px;
+  border: 2px solid white;
+  margin-bottom: 10px;
+}
+
+.profile-name {
+  font-weight: bold;
+  font-size: 18px;
+  color: var(--white);
+}
+
+.profile-role {
+  font-size: 14px;
+  color: var(--black2);
 }
 
 .sidebar ul {
-  list-style: none;
+  list-style-type: none;
   padding: 0;
   margin: 0;
 }
 
 .sidebar li {
-  margin-bottom: 1em;
-}
-
-.sidebar a {
-  color: #fff;
-  text-decoration: none;
-}
-
-div ul li {
   margin: 20px 0;
 }
 
-div ul li a {
-  color: white;
+.sidebar li a {
+  color: var(--white);
   text-decoration: none;
   display: block;
   padding: 10px;
-  border-radius: 5px;
+  border-radius: 10px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  -webkit-transition: background-color 0.3s ease, transform 0.2s ease;
+  -moz-transition: background-color 0.3s ease, transform 0.2s ease;
+  -ms-transition: background-color 0.3s ease, transform 0.2s ease;
+  -o-transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-div ul li a:hover,
-div ul li a.active {
-  background-color: #4f3ed4;
+.sidebar li a:hover,
+.sidebar li a.active {
+  background-color: #1f1b4d; /* Warna biru lebih gelap saat hover */
+  transform: translateX(10px);
 }
 
 .main-content {
