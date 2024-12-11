@@ -39,10 +39,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       $stmt = $conn->prepare($query_insert);
       $stmt->bind_param("sss", $username, $email, $hashed_password);
 
+      // Jika data berhasil dimasukkan ke tabel usersignup
       if ($stmt->execute()) {
-        // Redirect ke login.php setelah berhasil
-        header("Location: login.php");
-        exit();
+        // Ambil ID terbaru dari tabel usersignup
+        $last_id = $conn->insert_id;
+
+        // Masukkan data ke tabel user
+        $query_insert_user = "INSERT INTO user (id_user, username, email, password) VALUES (?, ?, ?, ?)";
+        $stmt_user = $conn->prepare($query_insert_user);
+        $stmt_user->bind_param("ssss", $last_id, $username, $email, $password);
+
+        // Simpan data ke tabel user
+        if ($stmt_user->execute()) {
+          // Redirect ke login.php setelah semua proses berhasil
+          header("Location: login.php");
+          exit();
+        } else {
+          $error = "Gagal menyimpan ke tabel user.";
+        }
+
+        $stmt_user->close();
       } else {
         $error = "Registrasi gagal. Mohon dicoba kembali.";
       }
@@ -51,9 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->close();
   }
 }
-
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>

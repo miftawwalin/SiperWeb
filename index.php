@@ -4,25 +4,30 @@ include 'koneksi.php';
 
 // Periksa apakah pengguna sudah login
 if (!isset($_SESSION['username'])) {
-  header("Location: login.php");
-  exit();
+    header("Location: login.php");
+    exit();
 }
 
 // Ambil username dari sesi
 $username = $_SESSION['username'];
 
-// Query untuk mendapatkan nama pengguna berdasarkan username
-$query = "SELECT nama_user FROM user WHERE username = '$username'";
-$result = mysqli_query($conn, $query);
-
 // Default nama pengguna jika tidak ditemukan
 $nama_user = "Guest";
 
+// Query untuk mendapatkan nama pengguna berdasarkan username
+$query = "SELECT username FROM user WHERE username = ?";
+$stmt = $conn->prepare($query);
+$stmt->bind_param("s", $username);
+$stmt->execute();
+$result = $stmt->get_result();
+
 // Jika data ditemukan, ambil nama pengguna
-if (mysqli_num_rows($result) > 0) {
-    $row = mysqli_fetch_assoc($result);
-    $nama_user = $row['nama_user'];
+if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    $nama_user = $row['username'];
 }
+
+$stmt->close();
 ?>
 
 <!DOCTYPE html>
@@ -40,7 +45,7 @@ if (mysqli_num_rows($result) > 0) {
       <div class="sidebar">
         <div class="profile">
           <img src="img/MIFTAHUL.png" alt="" class="profile-pic" />
-          <span class="profile-name">Hello, <?php echo $nama_user; ?></span> 
+          <span class="profile-name"><?php echo($username); ?></span> 
           <p class="profile-role">Administrator</p>
         </div>
         <nav>
